@@ -9,12 +9,14 @@
 int _printf(const char *format, ...)
 {
 	va_list arglist;
-	int count;
+	int count, buffer_count;
 	char c;
+	char buffer_size[1024];
 
 	va_start(arglist, format);
 
 	count = 0;
+	buffer_count = 0;
 
 	while (*format)
 	{
@@ -45,10 +47,23 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			write(1, format, 1);
-			count++;
+			buffer_size[buffer_count] = *format;
+			buffer_count++;
+
+			if (buffer_count == 1024)
+			{
+				write(1, buffer_size, buffer_count);
+				count += buffer_count;
+				buffer_count = 0;
+			}
 		}
 		format++;
+
+		if (buffer_count > 0)
+		{
+			write(1, buffer_size, buffer_count);
+			count += buffer_count;
+		}
 	}
 	va_end(arglist);;
 

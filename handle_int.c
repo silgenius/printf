@@ -27,7 +27,7 @@ void handle_binary_specifier(char c, va_list args, int *count)
 
 	i = 0;
 	j = 0;
-	tmp = va_arg(args, int);
+	tmp = va_arg(args, unsigned int);
 	if (tmp == 0)
 		buffer[i++] = '0';
 	else
