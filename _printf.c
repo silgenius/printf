@@ -9,19 +9,17 @@
 int _printf(const char *format, ...)
 {
 	va_list arglist;
-	int count, buffer_count;
+	int count;
 	char c;
-	char buffer_size[1024];
 
 	va_start(arglist, format);
 
 	count = 0;
-	buffer_count = 0;
 
 	while (*format)
 	{
 		if (*format == '%' && (*(format + 1) == 'c' || *(format + 1) == 's' ||
-				*(format + 1) == '%'))
+				*(format + 1) == '%' || *(format + 1) == 'S'))
 		{
 			format++;
 			c = *format;
@@ -47,26 +45,12 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			buffer_size[buffer_count] = *format;
-			buffer_count++;
-
-			if (buffer_count == 1024)
-			{
-				write(1, buffer_size, buffer_count);
-				count += buffer_count;
-				buffer_count = 0;
-			}
+			write(1, format, 1);
+			count++;
 		}
 		format++;
-
-		if (buffer_count > 0)
-		{
-			write(1, buffer_size, buffer_count);
-			count += buffer_count;
-		}
 	}
 	va_end(arglist);;
 
 	return (count);
 }
-

@@ -33,6 +33,7 @@ int main(void)
     _printf("%b\n", 98);
      _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
+     _printf("%S\n", "Best\nSchool");
     _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     return(0);
