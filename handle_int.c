@@ -20,7 +20,7 @@ void handle_int_specifier(char c, va_list args, int *count)
 void handle_binary_specifier(char c, va_list args, int *count)
 {
 	unsigned int tmp;
-	char buffer[65];
+	char buffer[32];
 	char *buffer_rev;
 	int i, j;
 	(void) c;
