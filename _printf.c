@@ -31,6 +31,12 @@ int _printf(const char *format, ...)
 			c = *format;
 			handle_int_specifier(c, arglist, &count);
 		}
+		else if (*format == '%' && (*(format + 1) == 'b'))
+		{
+			format++;
+			c = *format;
+			handle_binary_specifier(c, arglist, &count);
+		}
 		else
 		{
 			write(1, format, 1);

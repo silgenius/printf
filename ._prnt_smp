@@ -1,0 +1,50 @@
+#include "main.h"
+
+/**
+ * _printf - Produces output according to a format.
+ * @format: A character string containing zero or more directives.
+ *
+ * Return: The number of characters printed (excluding the null byte).
+ */
+int _printf(const char *format, ...)
+{
+	va_list arglist;
+	int count;
+	char c;
+
+	va_start(arglist, format);
+
+	count = 0;
+
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			c = *(format + 1);
+			if (c == 'c' || c == 's' || c == '%')
+			{
+				handle_char_specifier(c , arglist, &count);
+				format++;
+			}
+			else if (c == 'd' || c  == 'i')
+			{
+				handle_int_specifier(c, arglist, &count);
+				format++;
+			}
+			else if (c == 'b')
+			{
+				handle_binary_specifier(c, arglist, &count);
+				format++;
+			}
+		}
+		else
+		{
+			write(1, format, 1);
+			count++;
+			format++;
+		}
+	}
+	va_end(arglist);;
+
+	return (count);
+}
