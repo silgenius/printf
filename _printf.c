@@ -37,6 +37,12 @@ int _printf(const char *format, ...)
 			c = *format;
 			handle_binary_specifier(c, arglist, &count);
 		}
+		else if (*format == '%' && (*(format + 1) == 'o' || *(format + 1) == 'u' || *(format + 1) == 'x' || *(format + 1) == 'X'))
+		{
+			format++;
+			c = *format;
+			handle_unsigned_specifier(c, arglist, &count);
+		}
 		else
 		{
 			write(1, format, 1);
@@ -48,3 +54,4 @@ int _printf(const char *format, ...)
 
 	return (count);
 }
+

@@ -55,3 +55,35 @@ void handle_binary_specifier(char c, va_list args, int *count)
 
 	free(buffer_rev);
 }
+
+void handle_unsigned_specifier(char c, va_list args, int *count)
+{
+	unsigned int tmp;
+	char buffer[20];
+	int written;
+
+	switch (c)
+	{
+		case 'u':
+			tmp = va_arg(args, unsigned int);
+			written = sprintf(buffer, "%u", tmp);
+			*count += write(1, buffer, written);
+			break;
+		case 'o':
+			tmp = va_arg(args, unsigned int);
+			written = sprintf(buffer, "%o", tmp);
+			*count += write(1, buffer, written);
+			break;
+		case 'x':
+			tmp = va_arg(args, unsigned int);
+			written = sprintf(buffer, "%x", tmp);
+			*count += write(1, buffer, written);
+			break;
+		case 'X':
+			tmp = va_arg(args, unsigned int);
+			written = sprintf(buffer, "%X", tmp);
+			*count += write(1, buffer, written);
+		default:
+			break;
+	}
+}
