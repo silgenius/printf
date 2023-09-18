@@ -87,3 +87,20 @@ void handle_unsigned_specifier(char c, va_list args, int *count)
 			break;
 	}
 }
+
+void handle_hash_flag(char c, va_list args, int *count)
+{
+	switch (c)
+	{
+		case 'o':
+			*count += write(1, "0", 1);
+			break;
+		case 'x':
+			*count += write(1, "0x", 2);
+			break;
+		case 'X':
+			*count += write(1, "0X", 2);
+			break;
+	}
+	handle_unsigned_specifier(c, args, count);
+}

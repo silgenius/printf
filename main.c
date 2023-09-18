@@ -1,48 +1,51 @@
-#include <limits.h>
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
 int main(void)
 {
-    int len;
-    int len2;
-    unsigned int ui;
-    void *addr;
+    int num = 123;
+    char ch = 'A';
+    char *str = "Hello, World!";
+    float fnum = 3.14;
 
-    addr = (void *)0x7ffe637541f0;
-    ui = (unsigned int)INT_MAX + 1024;
+    /* Testing _printf with various specifiers */
+    _printf("Integer: %d\n", num);
+    _printf("Character: %c\n", ch);
+    _printf("String: %s\n", str);
 
-     _printf("Address:[%p]\n", addr);
-    printf("Address:[%p]\n", addr);
-    len = _printf("Let's try to printf a simple sentence.\n");
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len, len);
-    _printf("Length:[% d, %+i]\n", len, len);
-    printf("Length:[% d, %+i]\n", len, len);
-     _printf("Length:[%-d, %+i]\n", len, len);
-    printf("Length:[%-d, %+i]\n", len, len);
-    _printf("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
-    len = _printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
-    _printf("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    _printf("Unsigned octal:[%o]\n", ui);
-    printf("Unsigned octal:[%o]\n", ui);
-    _printf("%b\n", 98);
-     _printf("Unsigned:[%u]\n", ui);
-    printf("Unsigned:[%u]\n", ui);
-     _printf("%S\n", "Best\nSchool");
-    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    return(0);
+    /* Testing flags and width */
+    _printf("Padded integer: %5d\n", num);
+    _printf("Left-justified string: %-15s\n", str);
+
+    /* Testing custom specifiers */
+    _printf("Binary: %b\n", num);
+    _printf("Non-printable characters: %S\n", "Hello\nWorld");
+
+    /* Testing flags */
+    _printf("Positive integer with + flag: %+d\n", num);
+    _printf("Space flag with integer: % d\n", num);
+    _printf("Octal with # flag: %#o\n", num);
+    _printf("Hexadecimal with # flag: %#x\n", num);
+    _printf("Hexadecimal with # flag: %#X\n", num);
+
+    /* Testing invalid specifier */
+    _printf("Invalid specifier: %%z\n", 42);
+
+    /* Testing real printf for comparison */
+    printf("\nReal printf:\n");
+    printf("Integer: %d\n", num);
+    printf("Character: %c\n", ch);
+    printf("String: %s\n", str);
+    printf("Float: %f\n", fnum);
+    printf("Padded integer: %5d\n", num);
+    printf("Left-justified string: %-15s\n", str);
+    printf("Binary: %d\n", num);
+    printf("Positive integer with + flag: %+d\n", num);
+    printf("Space flag with integer: % d\n", num);
+    printf("Octal with # flag: %#o\n", num);
+    printf("Hexadecimal with # flag: %#x\n", num);
+    printf("Hexadecimal with # flag: %#X\n", num);
+
+    return 0;
 }
+

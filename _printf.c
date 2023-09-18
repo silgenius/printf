@@ -53,6 +53,16 @@ int _printf(const char *format, ...)
 			c = *format;
 			handle_binary_specifier(c, arglist, &count);
 		}
+		else if (*format == '%' && (*(format + 1) == '#'))
+		{
+			if (*(format + 2) == 'o' || *(format + 2) == 'X' || *(format + 2) == 'x')
+			{
+				format++;
+				format++;
+				c = *format;
+				handle_hash_flag(c, arglist, &count);
+			}
+		}
 		else if (*format == '%' && (*(format + 1) == 'o' || *(format + 1) == 'u' || *(format + 1) == 'x' || *(format + 1) == 'X'))
 		{
 			format++;
