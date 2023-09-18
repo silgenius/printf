@@ -25,6 +25,17 @@ int _printf(const char *format, ...)
 			c = *format;
 			handle_char_specifier(c , arglist, &count);
 		}
+		else if (*format == '%' && (*(format + 1) == '+' || *(format + 1) == ' '))
+		{
+			if (*(format + 2) == 'd' || *(format + 2) == 'i')
+			{
+				format++;
+				count += write(1, format, 1);
+				format++;
+				c = *format;
+				handle_int_specifier(c, arglist, &count);
+			}
+		}
 		else if (*format == '%' && (*(format + 1) == 'd' || *(format + 1) == 'i'))
 		{
 			format++;
