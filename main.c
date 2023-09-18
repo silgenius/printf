@@ -26,7 +26,7 @@ int main(void)
     _printf("Space flag with integer: % d\n", num);
     _printf("Octal with # flag: %#o\n", num);
     _printf("Hexadecimal with # flag: %#x\n", num);
-    _printf("Hexadecimal with # flag: %#X\n", num);
+    _printf("Hexadecimal with # flag: %+X\n", num);
 
     /* Testing invalid specifier */
     _printf("Invalid specifier: %%z\n", 42);
@@ -44,7 +44,7 @@ int main(void)
     printf("Space flag with integer: % d\n", num);
     printf("Octal with # flag: %#o\n", num);
     printf("Hexadecimal with # flag: %#x\n", num);
-    printf("Hexadecimal with # flag: %#X\n", num);
+    printf("Hexadecimal with # flag: %X\n", num);
 
     return 0;
 }

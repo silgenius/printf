@@ -74,6 +74,18 @@ int _printf(const char *format, ...)
 			format++;
 			handle_address_specifier(arglist, &count);
 		}
+		else if (*format == '%' && (*(format + 1) == 'l'))
+		{
+			format++;
+			format++;
+			handle_long_specifier(c, arglist, &count);
+		}
+		else if (*format == '%' && (*(format + 1) == 'h'))
+		{
+			format++;
+			format++;
+			handle_short_specifier(c, arglist, &count);
+		}
 		else
 		{
 			write(1, format, 1);
