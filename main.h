@@ -12,5 +12,6 @@ void handle_char_specifier(char c, va_list args, int *count);
 void handle_int_specifier(char c, va_list args, int *count);
 void handle_binary_specifier(char c, va_list args, int *count);
 void handle_unsigned_specifier(char c, va_list args, int *count);
+void handle_address_specifier(va_list args, int *count);
 
 #endif /* MAIN_H */

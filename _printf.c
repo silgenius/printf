@@ -43,6 +43,11 @@ int _printf(const char *format, ...)
 			c = *format;
 			handle_unsigned_specifier(c, arglist, &count);
 		}
+		else if (*format == '%' && (*(format + 1) == 'p'))
+		{
+			format++;
+			handle_address_specifier(arglist, &count);
+		}
 		else
 		{
 			write(1, format, 1);

@@ -12,9 +12,13 @@ int main(void)
     int len;
     int len2;
     unsigned int ui;
+    void *addr;
 
+    addr = (void *)0x7ffe637541f0;
     ui = (unsigned int)INT_MAX + 1024;
 
+     _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
     len = _printf("Let's try to printf a simple sentence.\n");
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len, len);
