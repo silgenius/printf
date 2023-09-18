@@ -1,51 +1,56 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
 int main(void)
 {
-    int num = 123;
-    char ch = 'A';
-    char *str = "Hello, World!";
-    float fnum = 3.14;
+    long long_num = 123456789012345;
+    short short_num = 32767;
+    unsigned long ulong_num = 4294967295;
+    unsigned short ushort_num = 65535;
+    long octal_num = 0177;
+    short hex_num = 0x1F;
 
-    /* Testing _printf with various specifiers */
-    _printf("Integer: %d\n", num);
-    _printf("Character: %c\n", ch);
-    _printf("String: %s\n", str);
+    int printf_result;
+    int _printf_result;
 
-    /* Testing flags and width */
-    _printf("Padded integer: %5d\n", num);
-    _printf("Left-justified string: %-15s\n", str);
+    printf("Testing with printf:\n");
+    printf_result = printf("Long: %ld\n", long_num);
+    printf("Printf Result: %d\n\n", printf_result);
 
-    /* Testing custom specifiers */
-    _printf("Binary: %b\n", num);
-    _printf("Non-printable characters: %S\n", "Hello\nWorld");
+    printf_result = printf("Short: %hd\n", short_num);
+    printf("Printf Result: %d\n\n", printf_result);
 
-    /* Testing flags */
-    _printf("Positive integer with + flag: %+d\n", num);
-    _printf("Space flag with integer: % d\n", num);
-    _printf("Octal with # flag: %#o\n", num);
-    _printf("Hexadecimal with # flag: %#x\n", num);
-    _printf("Hexadecimal with # flag: %+X\n", num);
+    printf_result = printf("Unsigned Long: %lu\n", ulong_num);
+    printf("Printf Result: %d\n\n", printf_result);
 
-    /* Testing invalid specifier */
-    _printf("Invalid specifier: %%z\n", 42);
+    printf_result = printf("Unsigned Short: %hu\n", ushort_num);
+    printf("Printf Result: %d\n\n", printf_result);
 
-    /* Testing real printf for comparison */
-    printf("\nReal printf:\n");
-    printf("Integer: %d\n", num);
-    printf("Character: %c\n", ch);
-    printf("String: %s\n", str);
-    printf("Float: %f\n", fnum);
-    printf("Padded integer: %5d\n", num);
-    printf("Left-justified string: %-15s\n", str);
-    printf("Binary: %d\n", num);
-    printf("Positive integer with + flag: %+d\n", num);
-    printf("Space flag with integer: % d\n", num);
-    printf("Octal with # flag: %#o\n", num);
-    printf("Hexadecimal with # flag: %#x\n", num);
-    printf("Hexadecimal with # flag: %X\n", num);
+    printf_result = printf("Octal: %lo\n", octal_num);
+    printf("Printf Result: %d\n\n", printf_result);
 
-    return 0;
+    printf_result = printf("Hexadecimal: %lx\n", hex_num);
+    printf("Printf Result: %d\n\n", printf_result);
+
+    printf("Testing with _printf:\n");
+    _printf_result = _printf("Long: %ld\n", long_num);
+    printf("_printf Result: %d\n\n", _printf_result);
+
+    _printf_result = _printf("Short: %hd\n", short_num);
+    printf("_printf Result: %d\n\n", _printf_result);
+
+    _printf_result = _printf("Unsigned Long: %lu\n", ulong_num);
+    printf("_printf Result: %d\n\n", _printf_result);
+
+    _printf_result = _printf("Unsigned Short: %hu\n", ushort_num);
+    printf("_printf Result: %d\n\n", _printf_result);
+
+    _printf_result = _printf("Octal: %lo\n", octal_num);
+    printf("_printf Result: %d\n\n", _printf_result);
+
+    _printf_result = _printf("Hexadecimal: %lx\n", hex_num);
+    printf("_printf Result: %d\n\n", _printf_result);
+
+    return (0);
 }
 

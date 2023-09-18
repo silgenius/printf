@@ -36,30 +36,31 @@ void handle_short_specifier(char c, va_list args, int *count)
 {
 	short value;
 	char buffer[32];
+	int written;
 
 	switch (c)
 	{
 		case 'd':
 		case 'i':
 			value = (short)va_arg(args, int);
-			sprintf(buffer, "%hd", value);
-			*count += write(1, buffer, strlen(buffer));
+			written = sprintf(buffer, "%hd", value);
+			*count += write(1, buffer, written);
 			break;
 		case 'u':
 			value = (unsigned short)va_arg(args, unsigned int);
-			sprintf(buffer, "%hu", value);
-			*count += write(1, buffer, strlen(buffer));
+			written = sprintf(buffer, "%hu", value);
+			*count += write(1, buffer, written);
 			break;
 		case 'o':
 			value = (unsigned short)va_arg(args, unsigned int);
-			sprintf(buffer, "%ho", value);
-			*count += write(1, buffer, strlen(buffer));
+			written = sprintf(buffer, "%ho", value);
+			*count += write(1, buffer, written);
 			break;
 		case 'X':
 		case 'x':
 			value = (unsigned short)va_arg(args, unsigned int);
-			sprintf(buffer, (c == 'X') ? "%hX" : "%hx", value);
-			*count += write(1, buffer, strlen(buffer));
+			written = sprintf(buffer, (c == 'X') ? "%hX" : "%hx", value);
+			*count += write(1, buffer, written);
 			break;
 	}
 }

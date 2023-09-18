@@ -78,12 +78,14 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			format++;
+			c = *format;
 			handle_long_specifier(c, arglist, &count);
 		}
 		else if (*format == '%' && (*(format + 1) == 'h'))
 		{
 			format++;
 			format++;
+			c = *format;
 			handle_short_specifier(c, arglist, &count);
 		}
 		else
