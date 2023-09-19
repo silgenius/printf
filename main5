@@ -1,0 +1,52 @@
+#include "main.h"
+#include <stdio.h>
+
+int main()
+{
+    int num = 123;
+    unsigned int u_num = 456;
+    char ch = 'A';
+    int count;
+
+    printf("Testing with _printf:\n");
+
+    count = _printf("Decimal: %0d\n", num);
+    printf("_printf Result: %d\n\n", count);
+
+    count = _printf("Unsigned: %0u\n", u_num);
+    printf("_printf Result: %d\n\n", count);
+
+    count = _printf("Character: %0c\n", ch);
+    printf("_printf Result: %d\n\n", count);
+
+    count = _printf("Octal: %0o\n", num);
+    printf("_printf Result: %d\n\n", count);
+
+    count = _printf("Hexadecimal: %0x\n", num);
+    printf("_printf Result: %d\n\n", count);
+
+    count = _printf("HEX: %0X\n", num);
+    printf("_printf Result: %d\n\n", count);
+
+     printf("Testing with printf:\n");
+
+    count = printf("Decimal: %0d\n", num);
+    printf("printf Result: %d\n\n", count);
+
+    count = printf("Unsigned: %0u\n", u_num);
+    printf("printf Result: %d\n\n", count);
+
+    printf("printf Result: %d\n\n", count);
+
+    count = printf("Octal: %0o\n", num);
+    printf("printf Result: %d\n\n", count);
+
+    count = printf("Hexadecimal: %0x\n", num);
+    printf("printf Result: %d\n\n", count);
+
+    count = printf("HEX: %0X\n", num);
+    printf("printf Result: %d\n\n", count);
+
+    return 0;
+}
+
