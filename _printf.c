@@ -11,7 +11,6 @@ int _printf(const char *format, ...)
 	va_list arglist;
 	int count;
 	char c;
-	int field_width;
 
 	va_start(arglist, format);
 
