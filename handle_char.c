@@ -10,8 +10,11 @@ void handle_char_specifier(char c, va_list args, int *count)
 	{
 		case 's':
 			tmp = va_arg(args, char *);
-			*count += write(1, tmp, strlen(tmp));
-			break;
+			if (tmp != NULL)
+			{
+				*count += write(1, tmp, strlen(tmp));
+				break;
+			}
 		case 'c':
 			ch = va_arg(args, int);
 			*count += write(1, &ch, 1);
