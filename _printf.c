@@ -19,28 +19,7 @@ int _printf(const char *format, ...)
 
 	while (*format)
 	{
-		if (*format == '%')
-		{
-			 if (isdigit(*(format + 1)))
-			 {
-				  format++;
-				  field_width = *(format) - '0';
-				  if (field_width == 0)
-				  {
-				  	format++;
-				  	c = *format;
-				  	handle_zero_flag(c, arglist, &count, field_width);
-				  }
-
-				  else
-				  {
-					  format++;
-					  c = *format;
-					  handle_zero_flag(c, arglist, &count, field_width);
-				  }
-			 }
-		}
-		else if (*format == '%' && (*(format + 1) == 'c' || *(format + 1) == 's' ||
+		if (*format == '%' && (*(format + 1) == 'c' || *(format + 1) == 's' ||
 				*(format + 1) == '%' || *(format + 1) == 'S'))
 		{
 			format++;
