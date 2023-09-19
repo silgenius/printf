@@ -16,5 +16,7 @@ void handle_address_specifier(va_list args, int *count);
 void handle_hash_flag(char c, va_list, int *count);
 void handle_long_specifier(char c, va_list args, int *count);
 void handle_short_specifier(char c, va_list args, int *count);
+void handle_rot13_specifier(va_list args, int *count);
+void handle_reverse_specifier(va_list args, int *count);
 
 #endif /* MAIN_H */

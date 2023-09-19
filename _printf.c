@@ -88,6 +88,17 @@ int _printf(const char *format, ...)
 			c = *format;
 			handle_short_specifier(c, arglist, &count);
 		}
+		else if (*format == '%' && (*(format + 1) == 'r'))
+		{
+			format++;
+			handle_reverse_specifier(arglist, &count);
+		}
+
+		else if (*format == '%' && (*(format + 1) == 'R'))
+		{
+			format++;
+			handle_rot13_specifier(arglist, &count);
+		}
 		else
 		{
 			write(1, format, 1);
