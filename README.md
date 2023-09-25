@@ -35,7 +35,7 @@ In this project, we will be building our own version of the `printf()` function,
 To use the custom `printf()` function, include the header file and link the corresponding source file in your project. Then, call the function with a format string and the respective arguments.
 
 ```c
-#include "custom_printf.h"
+#include "main.h"
 
 int main() {
     int num = 42;
