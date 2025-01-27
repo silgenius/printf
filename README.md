@@ -27,7 +27,7 @@ In this project, we will be building our own version of the `printf()` function,
 - [x] Variable argument handling
 - [x] Error handling for incorrect format strings
 - [x] Memory management for strings
-- [ ] Additional format specifiers (optional)
+- [x] Additional format specifiers (optional)
 - [ ] Optimization (optional)
 
 ## Usage
